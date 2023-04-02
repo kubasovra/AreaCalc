@@ -14,7 +14,7 @@ namespace AreaCalc.Extensions
             return services;
         }
 
-        public static IServiceCollection AddStrategy<TFigure, TStrategy>(this IServiceCollection services)
+        public static IServiceCollection AddAreaStrategy<TFigure, TStrategy>(this IServiceCollection services)
             where TFigure : class, IFigure
             where TStrategy : class, IAreaStrategy<TFigure>
         {
