@@ -6,9 +6,16 @@ namespace AreaCalc.Calculation
 {
     public class TriangleAreaStrategy : IAreaStrategy<Triangle>
     {
+        private readonly DoubleToleranceComparer _toleranceComparer;
+
+        public TriangleAreaStrategy(DoubleToleranceComparer toleranceComparer)
+        {
+            _toleranceComparer = toleranceComparer;
+        }
+
         public double CalcArea(Triangle figure)
         {
-            if (figure.IsRight())
+            if (figure.IsRight(_toleranceComparer))
             {
                 var sides = new List<double> { figure.SideA, figure.SideB, figure.SideC };
                 sides.Sort();

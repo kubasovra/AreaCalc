@@ -35,13 +35,13 @@ namespace AreaCalc.Figures
             SideC = sideC;
         }
         
-        public bool IsRight()
+        public bool IsRight(IEqualityComparer<double> comparer)
         {
             var sides = new List<double> { SideA, SideB, SideC };
             sides.Sort();
             var longestSquare = Math.Pow(sides[2], 2);
             var restSquaresSum = Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2);
-            return longestSquare == restSquaresSum;
+            return comparer.Equals(longestSquare, restSquaresSum);
         }
     }
 }
